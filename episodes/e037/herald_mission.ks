@@ -90,25 +90,13 @@
   }
   
   function enable_antennae {
-		for rt in ship:modulesnamed("ModuleRTAntenna") { 
-			if rt:hasevent("no target") rt:setfield("target", "Kerbin").
-			if rt:hasevent("activate") rt:doevent("activate").
+  	parameter mission.
+	for rt in ship:modulesnamed("ModuleRTAntenna") { 
+		if rt:hasevent("no target") rt:setfield("target", "Kerbin").
+		if rt:hasevent("activate") rt:doevent("activate").
 		}
-		mission["next"]().
+	mission["next"]().
 	}
-
-//  function enable_antennae {
-//    parameter mission.
-//    local p is ship:partstitled("Comms DTS-M1")[0].
-//    local m is p:getmodule("ModuleRTAntenna").
-//    m:doevent("Activate").
-//    m:setfield("target", "Kerbin").
-
-//    set p to ship:partstitled("Communotron 16")[0].
-//    set m to p:getmodule("ModuleRTAntenna").
-//    m:doevent("Activate").
-//    mission["next"]().
-//  }
 
   function idle {
     parameter mission.
